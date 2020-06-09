@@ -740,106 +740,106 @@ def update_value(country_dropdown):
             }
         }
     )
-@app.callback(
-    Output(component_id='country_sir_pred', component_property='children'),
-    [Input(component_id='value-selected_left', component_property='value')]
-)
-def update_value(country_dropdown):
-    #layout_aggregate = copy.deepcopy(layout)
-    # day_wise.reset_index(inplace=True)
-    # day_wise.set_index("Date", inplace=True)
-    dff = pd.read_csv(DATA_PATH.joinpath("Singapore"+".csv"),low_memory=False, index_col=0)
-    # dff.reset_index(inplace=True)
-    # dff.set_index("Date", inplace=True)
+# @app.callback(
+#     Output(component_id='country_sir_pred', component_property='children'),
+#     [Input(component_id='value-selected_left', component_property='value')]
+# )
+# def update_value(country_dropdown):
+#     #layout_aggregate = copy.deepcopy(layout)
+#     # day_wise.reset_index(inplace=True)
+#     # day_wise.set_index("Date", inplace=True)
+#     dff = pd.read_csv(DATA_PATH.joinpath("Singapore"+".csv"),low_memory=False, index_col=0)
+#     # dff.reset_index(inplace=True)
+#     # dff.set_index("Date", inplace=True)
 
-    return dcc.Graph(
-        id='example-graph',
-        figure={
-            'data': [
-                #{'x': dff.index, 'y': dff['Confirmed'], 'type': 'lines', 'name': country_dropdown, 'mode':'lines+markers', 'name':"Confirmed"},
-                dict(
-                    type="scatter",
-                    mode="lines",
-                    name="Susceptible",
-                    x=dff.index,
-                    y=dff['Susceptible'],
-                    line=dict(shape="spline", smoothing="2", color="#F9ADA0"),
-                    ),
-                dict(
-                    type="scatter",
-                    mode="lines",
-                    name="Infected",
-                    x=dff.index,
-                    y=dff['Infected'],
-                    line=dict(shape="spline", smoothing="2", color="#849E68"),
-                    ),
-                dict(
-                    type="scatter",
-                    mode="lines",
-                    name="Recovered",
-                    x=dff.index,
-                    y=dff['Recovered'],
-                    line=dict(shape="spline", smoothing="2", color="#59C3C3"),
-                    ),
+#     return dcc.Graph(
+#         id='example-graph',
+#         figure={
+#             'data': [
+#                 #{'x': dff.index, 'y': dff['Confirmed'], 'type': 'lines', 'name': country_dropdown, 'mode':'lines+markers', 'name':"Confirmed"},
+#                 dict(
+#                     type="scatter",
+#                     mode="lines",
+#                     name="Susceptible",
+#                     x=dff.index,
+#                     y=dff['Susceptible'],
+#                     line=dict(shape="spline", smoothing="2", color="#F9ADA0"),
+#                     ),
+#                 dict(
+#                     type="scatter",
+#                     mode="lines",
+#                     name="Infected",
+#                     x=dff.index,
+#                     y=dff['Infected'],
+#                     line=dict(shape="spline", smoothing="2", color="#849E68"),
+#                     ),
+#                 dict(
+#                     type="scatter",
+#                     mode="lines",
+#                     name="Recovered",
+#                     x=dff.index,
+#                     y=dff['Recovered'],
+#                     line=dict(shape="spline", smoothing="2", color="#59C3C3"),
+#                     ),
                 
-            ],
-            'layout': {
-                'title': "Predicting Suspect Infection Recovery Curve  ("+"Singapore"+")",
-                 'y_title': "New confirmed Cases",
-                 'x_axis_tickangle': 180
-            }
-        }
-    )
-@app.callback(
-    Output(component_id='death_recovery_martix', component_property='children'),
-    [Input(component_id='value-selected_left', component_property='value')]
-)
-def update_value(country_dropdown):
-    #layout_aggregate = copy.deepcopy(layout)
-    # day_wise.reset_index(inplace=True)
-    # day_wise.set_index("Date", inplace=True)
-    dff = pd.read_csv(DATA_PATH.joinpath("Malaysia"+".csv"),low_memory=False, index_col=0)
-    # dff.reset_index(inplace=True)
-    # dff.set_index("Date", inplace=True)
+#             ],
+#             'layout': {
+#                 'title': "Predicting Suspect Infection Recovery Curve  ("+"Singapore"+")",
+#                  'y_title': "New confirmed Cases",
+#                  'x_axis_tickangle': 180
+#             }
+#         }
+#     )
+# @app.callback(
+#     Output(component_id='death_recovery_martix', component_property='children'),
+#     [Input(component_id='value-selected_left', component_property='value')]
+# )
+# def update_value(country_dropdown):
+#     #layout_aggregate = copy.deepcopy(layout)
+#     # day_wise.reset_index(inplace=True)
+#     # day_wise.set_index("Date", inplace=True)
+#     dff = pd.read_csv(DATA_PATH.joinpath("Malaysia"+".csv"),low_memory=False, index_col=0)
+#     # dff.reset_index(inplace=True)
+#     # dff.set_index("Date", inplace=True)
 
-    return dcc.Graph(
-        id='example-graph',
-        figure={
-            'data': [
-                #{'x': dff.index, 'y': dff['Confirmed'], 'type': 'lines', 'name': country_dropdown, 'mode':'lines+markers', 'name':"Confirmed"},
-                dict(
-                    type="scatter",
-                    mode="lines",
-                    name="Susceptible",
-                    x=dff.index,
-                    y=dff['Susceptible'],
-                    line=dict(shape="spline", smoothing="2", color="#F9ADA0"),
-                    ),
-                dict(
-                    type="scatter",
-                    mode="lines",
-                    name="Infected",
-                    x=dff.index,
-                    y=dff['Infected'],
-                    line=dict(shape="spline", smoothing="2", color="#849E68"),
-                    ),
-                dict(
-                    type="scatter",
-                    mode="lines",
-                    name="Recovered",
-                    x=dff.index,
-                    y=dff['Recovered'],
-                    line=dict(shape="spline", smoothing="2", color="#59C3C3"),
-                    ),
+#     return dcc.Graph(
+#         id='example-graph',
+#         figure={
+#             'data': [
+#                 #{'x': dff.index, 'y': dff['Confirmed'], 'type': 'lines', 'name': country_dropdown, 'mode':'lines+markers', 'name':"Confirmed"},
+#                 dict(
+#                     type="scatter",
+#                     mode="lines",
+#                     name="Susceptible",
+#                     x=dff.index,
+#                     y=dff['Susceptible'],
+#                     line=dict(shape="spline", smoothing="2", color="#F9ADA0"),
+#                     ),
+#                 dict(
+#                     type="scatter",
+#                     mode="lines",
+#                     name="Infected",
+#                     x=dff.index,
+#                     y=dff['Infected'],
+#                     line=dict(shape="spline", smoothing="2", color="#849E68"),
+#                     ),
+#                 dict(
+#                     type="scatter",
+#                     mode="lines",
+#                     name="Recovered",
+#                     x=dff.index,
+#                     y=dff['Recovered'],
+#                     line=dict(shape="spline", smoothing="2", color="#59C3C3"),
+#                     ),
                 
-            ],
-            'layout': {
-                'title': "Predicting Suspect Infection Recovery Curve  ("+"Malaysia"+")",
-                 'y_title': "New confirmed Cases",
-                 'x_axis_tickangle': 180
-            }
-        }
-    )
+#             ],
+#             'layout': {
+#                 'title': "Predicting Suspect Infection Recovery Curve  ("+"Malaysia"+")",
+#                  'y_title': "New confirmed Cases",
+#                  'x_axis_tickangle': 180
+#             }
+#         }
+#     )
 
 @app.callback(
     Output(component_id='singapore_delphi_pred', component_property='children'),
@@ -945,6 +945,58 @@ def update_value(country_dropdown):
         }
     )
 
+# @app.callback(
+#     Output(component_id='singapore_policy', component_property='children'),
+#     [Input(component_id='value-selected_left', component_property='value')]
+# )
+# def update_value(country_dropdown):
+#     #layout_aggregate = copy.deepcopy(layout)
+#     # day_wise.reset_index(inplace=True)
+#     # day_wise.set_index("Date", inplace=True)
+#     dff = pd.read_csv(DATA_PATH.joinpath("Four Weeks.csv"))
+#     #dff= dff[dff['Country']=="Malaysia"]
+#     # dff.reset_index(inplace=True)
+#     # dff.set_index("Date", inplace=True)
+
+#     return dcc.Graph(
+#         id='example-graph',
+#         figure={
+#             'data': [
+#                 #{'x': dff.index, 'y': dff['Confirmed'], 'type': 'lines', 'name': country_dropdown, 'mode':'lines+markers', 'name':"Confirmed"},
+#                 dict(
+#                     type="scatter",
+#                     mode="lines",
+#                     name="Restrict Mass Gatherings",
+#                     x=dff["Date"],
+#                     y=dff['Restrict_Mass_Gatherings'],
+#                     line=dict(shape="spline", smoothing="2", color="#F9ADA0"),
+#                     ),
+#                 dict(
+#                     type="scatter",
+#                     mode="lines",
+#                     name="Lockdown",
+#                     x=dff["Date"],
+#                     y=dff['Lockdown'],
+#                     line=dict(shape="spline", smoothing="2", color="#849E68"),
+#                     ),
+#                 dict(
+#                     type="scatter",
+#                     mode="lines",
+#                     name="No Measure",
+#                     x=dff["Date"],
+#                     y=dff['No Measure'],
+#                     line=dict(shape="spline", smoothing="2", color="#59C3C3"),
+#                     ),
+                
+#             ],
+#             'layout': {
+#                 'title': "Goverment Policy Curve  ("+"Singapore"+")",
+#                  'y_title': "New confirmed Cases",
+#                  'x_axis_tickangle': 180
+#             }
+#         }
+#     )
+
 @app.callback(
     Output(component_id='singapore_policy', component_property='children'),
     [Input(component_id='value-selected_left', component_property='value')]
@@ -991,6 +1043,57 @@ def update_value(country_dropdown):
             ],
             'layout': {
                 'title': "Goverment Policy Curve  ("+"Singapore"+")",
+                 'y_title': "New confirmed Cases",
+                 'x_axis_tickangle': 180
+            }
+        }
+    )
+@app.callback(
+    Output(component_id='malaysia_policy', component_property='children'),
+    [Input(component_id='value-selected_left', component_property='value')]
+)
+def update_value(country_dropdown):
+    #layout_aggregate = copy.deepcopy(layout)
+    # day_wise.reset_index(inplace=True)
+    # day_wise.set_index("Date", inplace=True)
+    dff = pd.read_csv(DATA_PATH.joinpath("Four Weeks_M.csv"))
+    #dff= dff[dff['Country']=="Malaysia"]
+    # dff.reset_index(inplace=True)
+    # dff.set_index("Date", inplace=True)
+
+    return dcc.Graph(
+        id='example-graph',
+        figure={
+            'data': [
+                #{'x': dff.index, 'y': dff['Confirmed'], 'type': 'lines', 'name': country_dropdown, 'mode':'lines+markers', 'name':"Confirmed"},
+                dict(
+                    type="scatter",
+                    mode="lines",
+                    name="Restrict Mass Gatherings",
+                    x=dff["Date"],
+                    y=dff['Restrict_Mass_Gatherings'],
+                    line=dict(shape="spline", smoothing="2", color="#F9ADA0"),
+                    ),
+                dict(
+                    type="scatter",
+                    mode="lines",
+                    name="Lockdown",
+                    x=dff["Date"],
+                    y=dff['Lockdown'],
+                    line=dict(shape="spline", smoothing="2", color="#849E68"),
+                    ),
+                dict(
+                    type="scatter",
+                    mode="lines",
+                    name="No Measure",
+                    x=dff["Date"],
+                    y=dff['No Measure'],
+                    line=dict(shape="spline", smoothing="2", color="#59C3C3"),
+                    ),
+                
+            ],
+            'layout': {
+                'title': "Goverment Policy Curve  ("+"Malasyia"+")",
                  'y_title': "New confirmed Cases",
                  'x_axis_tickangle': 180
             }
